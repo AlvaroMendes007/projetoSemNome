@@ -14,8 +14,8 @@ import javax.persistence.Table;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idCategoria;
 
 	@Column
 	private String nome;
@@ -29,18 +29,18 @@ public class Categoria {
 		this.nome = nome;
 	}
 	
-	public Categoria(long id, String nome) {
+	public Categoria(long idCategoria, String nome) {
 		super();
-		this.id = id;
+		this.idCategoria = idCategoria;
 		this.nome = nome;
 	}
 
 	public long getId() {
-		return id;
+		return idCategoria;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 	public String getNome() {
@@ -53,7 +53,7 @@ public class Categoria {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome);
+		return Objects.hash(idCategoria, nome);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class Categoria {
 		if (getClass() != obj.getClass())
 			return false;
 		Categoria other = (Categoria) obj;
-		return id == other.id && Objects.equals(nome, other.nome);
+		return idCategoria == other.idCategoria && Objects.equals(nome, other.nome);
 	}
 
 }
