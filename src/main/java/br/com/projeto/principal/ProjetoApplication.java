@@ -30,10 +30,12 @@ public class ProjetoApplication {
         private static final CategoriaDAO categoriaDAO = new CategoriaDAO(entityManager);
     }
 	
+	@SuppressWarnings("unchecked")
 	public static void saveCategoria(Categoria categoria) {
 		getCategoriaDao().save(categoria);
     }
 	
+	@SuppressWarnings("rawtypes")
 	public static Dao getCategoriaDao() {
         return CategoriaDaoHolder.categoriaDAO;
     }
