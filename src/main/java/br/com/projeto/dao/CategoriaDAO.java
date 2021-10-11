@@ -12,9 +12,6 @@ import javax.persistence.Query;
 import br.com.projeto.entidades.Categoria;
 
 public class CategoriaDAO implements Dao<Categoria> {
-
-	//EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("projeto");
-	//EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
 	
 	private final EntityManager entityManager;
 
