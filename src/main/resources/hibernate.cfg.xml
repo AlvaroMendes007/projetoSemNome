@@ -15,6 +15,11 @@
 
 		<mapping class="br.com.projeto.entidades.Categoria" />
 		<mapping class="br.com.projeto.entidades.Produto" />
+		<mapping class="br.com.projeto.entidades.Cliente" />
+		<mapping class="br.com.projeto.entidades.FormaPagamento" />
+		<mapping class="br.com.projeto.entidades.ItemPedido" />
+		<mapping class="br.com.projeto.entidades.Pedido" />
+		<mapping class="br.com.projeto.entidades.StatusPedido" />
 
 	</session-factory>
 </hibernate-configuration>
