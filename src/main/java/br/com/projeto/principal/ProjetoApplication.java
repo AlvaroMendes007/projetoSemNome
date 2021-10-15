@@ -3,7 +3,10 @@ package br.com.projeto.principal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.projeto.controller.ProdutoController;
+import br.com.projeto.entidades.Categoria;
+import br.com.projeto.entidades.Produto;
+import br.com.projeto.repository.CategoriaRepository;
+import br.com.projeto.repository.ProdutoController;
 
 @SpringBootApplication
 public class ProjetoApplication {
@@ -12,9 +15,10 @@ public class ProjetoApplication {
 		SpringApplication.run(ProjetoApplication.class, args);
 		
 		ProdutoController pdao = new ProdutoController();
+		CategoriaRepository cc = new CategoriaRepository();
 		
-		System.out.println(pdao.getByCategoria(1));
+		Categoria categoria = new Categoria();
 		
-		
+		Produto produto = new Produto();
 	}
 }

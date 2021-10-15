@@ -19,10 +19,10 @@ public class Pedido {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long idPedido;
   
-  @Column
+  @Column(nullable = false)
   private float valorTotal;
   
-  @Column
+  @Column(nullable = false)
   private Date dataPedido;
   
   @ManyToOne
@@ -30,7 +30,7 @@ public class Pedido {
   private FormaPagamento formaPagamento;
   
   @ManyToOne
-  @JoinColumn(name = "idStatusPedido")
+  @JoinColumn(name = "idStatusPedido", nullable = false)
   private StatusPedido statusPedido;
   
   public Pedido() {

@@ -17,17 +17,17 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProduto;
 
-	@Column
+	@Column(nullable = false)
 	private String nome;
 
 	@Column
 	private String descricao;
 
-	@Column
+	@Column (nullable = false)
 	private float valor;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCategoria")
+	@JoinColumn(name = "idCategoria", nullable = false)
 	private Categoria categoria;
 
 

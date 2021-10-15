@@ -15,7 +15,7 @@
 	<name>projeto</name>
 	<description>Projeto Teste</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -28,6 +28,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.3.10</version>
+		</dependency>
+
 
 		<!-- HIBERNATE -->
 		<dependency>
@@ -48,7 +56,7 @@
 			<version>9.4.0.jre11</version>
 		</dependency>
 
-	 </dependencies>
+	</dependencies>
 
 	<build>
 		<plugins>

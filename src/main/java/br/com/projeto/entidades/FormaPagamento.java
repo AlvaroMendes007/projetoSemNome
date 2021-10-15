@@ -15,7 +15,7 @@ public class FormaPagamento {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long idFormaPagamento;
   
-  @Column
+  @Column(nullable = false)
   private String descricaoFormaPagamento;
   
   public FormaPagamento() {

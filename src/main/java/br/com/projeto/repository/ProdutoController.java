@@ -1,4 +1,4 @@
-package br.com.projeto.controller;
+package br.com.projeto.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,6 +6,8 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import org.hibernate.PropertyValueException;
 
 import br.com.projeto.dao.ProdutoDAO;
 import br.com.projeto.dao.Dao;
@@ -23,25 +25,29 @@ public class ProdutoController {
   public static Dao getProdutoDao() {
     return ProdutoDaoHolder.produtoDAO;
   }
-  
+
   @SuppressWarnings("unchecked")
   public void saveProduto(Produto produto) {
-    getProdutoDao().save(produto);
+    try {
+      getProdutoDao().save(produto);
+    } catch (PropertyValueException e) {
+      System.out.println("ERRO: " + e.getMessage());
+    }
   }
 
   @SuppressWarnings("unchecked")
   public List<Produto> getAll() {
     return getProdutoDao().getAll();
   }
-    
+
   @SuppressWarnings("unchecked")
   public static Produto getProduto(long idProduto) {
     Optional<Produto> produto = getProdutoDao().get(idProduto);
-    return produto.orElseGet(
-        () -> new Produto(idProduto, "Produto com id: " + idProduto + " não existe", null, idProduto, null));
+    return produto
+        .orElseGet(() -> new Produto(idProduto, "Produto com id: " + idProduto + " não existe", null, idProduto, null));
   }
-  
-  public static List<Produto> getByCategoria(long idCategoria){
+
+  public static List<Produto> getByCategoria(long idCategoria) {
     return ProdutoDaoHolder.produtoDAO.getByCategoria(idCategoria);
   }
 
@@ -49,7 +55,7 @@ public class ProdutoController {
   public void deleteProduto(Produto produto) {
     getProdutoDao().delete(produto);
   }
-  
+
   @SuppressWarnings("unchecked")
   public void updateProduto(Produto produto, String[] params) {
     getProdutoDao().update(produto, params);

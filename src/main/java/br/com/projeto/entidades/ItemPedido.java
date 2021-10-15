@@ -15,10 +15,10 @@ public class ItemPedido {
   @Id
   private long idItemPedido;
       
-  @Column
+  @Column(nullable = false)
   private float valorUnitario;
   
-  @Column
+  @Column(nullable = false)
   private int quantidadeProduto;
   
   @ManyToOne
@@ -26,7 +26,7 @@ public class ItemPedido {
   private Pedido pedido;
   
   @ManyToOne
-  @JoinColumn(name = "idProduto")
+  @JoinColumn(name = "idProduto", nullable = false)
   private Produto produto;
   
   @ManyToOne

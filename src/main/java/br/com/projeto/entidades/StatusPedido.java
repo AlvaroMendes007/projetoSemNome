@@ -8,21 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "tb_status_pedido")
+@Table(name = "tb_status_pedido")
 public class StatusPedido {
 
-  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long idStatusPedido;
-  
-  @Column
+
+  @Column(nullable = false)
   private String descricaoStatusPedido;
 
   public StatusPedido() {
     super();
   }
-  
+
   public StatusPedido(String descricaoStatusPedido) {
     super();
     this.descricaoStatusPedido = descricaoStatusPedido;
@@ -49,8 +48,5 @@ public class StatusPedido {
   public void setDescricaoStatusPedido(String descricaoStatusPedido) {
     this.descricaoStatusPedido = descricaoStatusPedido;
   }
-  
-  
-  
-  
+
 }
